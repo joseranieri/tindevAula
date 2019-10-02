@@ -4,14 +4,12 @@
 
 //chamando o Express, framework para server web
 const express = require('express');
+const routes = require('./routes');
 
 //instanciando o express
 const server = express();
+server.use(express.json());
 
-//gerando uma resposta via Get retornando um Hello World
-server.get('/', (req, res) => {
-    return res.send('Hello world guy');
-});
-
+server.use(routes);
 //Startando o serviço escutando na porta 3333
 server.listen(3333);
